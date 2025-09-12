@@ -4,35 +4,9 @@ import { parse } from 'csv-parse/sync';
 
 export default function handler(req, res) {
   try {
-    // Try multiple possible paths for Vercel deployment
-    const possiblePaths = [
-      path.join(process.cwd(), 'data', 'train_data.csv'),
-      path.join(process.cwd(), 'public', 'data', 'train_data.csv'),
-      path.join(process.cwd(), '..', 'data', 'train_data.csv'),
-      path.join(process.cwd(), '..', 'public', 'data', 'train_data.csv'),
-      path.join(process.cwd(), '..', '..', 'public', 'data', 'train_data.csv')
-    ];
-    
-    let csvContent = null;
-    let csvPath = null;
-    
-    // Try each possible path
-    for (const testPath of possiblePaths) {
-      try {
-        if (fs.existsSync(testPath)) {
-          csvContent = fs.readFileSync(testPath, 'utf8');
-          csvPath = testPath;
-          break;
-        }
-      } catch (err) {
-        // Continue to next path
-        continue;
-      }
-    }
-    
-    if (!csvContent) {
-      throw new Error('Could not find train_data.csv in any expected location');
-    }
+    // Read CSV file from public directory
+    const csvPath = path.join(process.cwd(), 'public', 'data', 'train_data.csv');
+    const csvContent = fs.readFileSync(csvPath, 'utf8');
     
     // Parse CSV
     const trains = parse(csvContent, {
@@ -52,8 +26,6 @@ export default function handler(req, res) {
     const avgSpeed = 70; // kmph - you can calculate this from actual data if available
     const totalDwell = trains.reduce((acc, t) => acc + (Number(t.DwellTimeMinutes) || 0), 0) / 60; // Convert to hours
     const totalThroughput = total; // Total number of trains
-    
-    console.log(`Successfully calculated KPIs from ${trains.length} train records loaded from ${csvPath}`);
     
     res.status(200).json({ 
       totalTrains: total, 
