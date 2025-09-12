@@ -1,0 +1,7 @@
+/* RailSarthiAi minimal reset and table styles */
+:root { font-family: Inter, system-ui, Arial, sans-serif; color:#111827; }
+*{box-sizing:border-box}
+body{margin:0;}
+button{cursor:pointer}
+table{border-collapse:collapse}
+th,td{padding:8px 10px;border-bottom:1px solid #e5e7eb}
