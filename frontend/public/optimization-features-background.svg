@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="optimizationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="algorithmGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#43e97b;stop-opacity:0.9" />
+    </linearGradient>
+    
+    <radialGradient id="featureGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0.4" />
+    </radialGradient>
+    
+    <!-- Pattern for algorithm grid -->
+    <pattern id="algorithmGrid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none"/>
+      <path d="M0,30 L60,30 M30,0 L30,60" stroke="#4facfe" stroke-width="0.5" opacity="0.2"/>
+      <circle cx="30" cy="30" r="2" fill="#4facfe" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Filter for glow effects -->
+    <filter id="optimizationGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Filter for pulse effect -->
+    <filter id="pulse" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#optimizationGradient)"/>
+  
+  <!-- Algorithm grid overlay -->
+  <rect width="1200" height="400" fill="url(#algorithmGrid)" opacity="0.3"/>
+  
+  <!-- Central Optimization Hub -->
+  <g transform="translate(600, 200)" filter="url(#pulse)">
+    <circle cx="0" cy="0" r="40" fill="url(#featureGlow)" opacity="0.9">
+      <animate attributeName="r" values="40;45;40" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="25" fill="rgba(255,255,255,0.3)" stroke="#ffffff" stroke-width="2"/>
+    <text x="0" y="5" fill="#ffffff" font-size="12" font-family="Arial" text-anchor="middle">AI</text>
+    <text x="0" y="18" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">OPT</text>
+  </g>
+  
+  <!-- Feature Nodes -->
+  <g filter="url(#optimizationGlow)">
+    <!-- Feature 1: More Trains/Maintenance -->
+    <circle cx="200" cy="100" r="18" fill="url(#featureGlow)" opacity="0.8">
+      <animate attributeName="r" values="18;22;18" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="200" y="105" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">T+</text>
+    
+    <!-- Feature 2: Schedule Adherence -->
+    <circle cx="400" cy="80" r="18" fill="url(#featureGlow)" opacity="0.8">
+      <animate attributeName="r" values="18;22;18" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="400" y="85" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">S+</text>
+    
+    <!-- Feature 3: Traffic Rerouting -->
+    <circle cx="800" cy="90" r="18" fill="url(#featureGlow)" opacity="0.8">
+      <animate attributeName="r" values="18;22;18" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="800" y="95" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">R+</text>
+    
+    <!-- Feature 4: Scenario Planning -->
+    <circle cx="1000" cy="110" r="18" fill="url(#featureGlow)" opacity="0.8">
+      <animate attributeName="r" values="18;22;18" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1000" y="115" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">P+</text>
+    
+    <!-- Secondary optimization nodes -->
+    <circle cx="300" cy="250" r="12" fill="#43e97b" opacity="0.7"/>
+    <text x="300" y="255" fill="#ffffff" font-size="7" font-family="Arial" text-anchor="middle">EFF</text>
+    
+    <circle cx="500" cy="280" r="12" fill="#4facfe" opacity="0.7"/>
+    <text x="500" y="285" fill="#ffffff" font-size="7" font-family="Arial" text-anchor="middle">SPD</text>
+    
+    <circle cx="700" cy="260" r="12" fill="#00f2fe" opacity="0.7"/>
+    <text x="700" y="265" fill="#ffffff" font-size="7" font-family="Arial" text-anchor="middle">SAF</text>
+    
+    <circle cx="900" cy="270" r="12" fill="#f093fb" opacity="0.7"/>
+    <text x="900" y="275" fill="#ffffff" font-size="7" font-family="Arial" text-anchor="middle">KPI</text>
+  </g>
+  
+  <!-- Optimization Connections -->
+  <g stroke="url(#algorithmGradient)" stroke-width="2" fill="none" opacity="0.7">
+    <!-- Main hub connections -->
+    <line x1="600" y1="200" x2="200" y2="100">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="400" y2="80">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="800" y2="90">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="1000" y2="110">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Inter-feature connections -->
+    <line x1="200" y1="100" x2="300" y2="250">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="400" y1="80" x2="500" y2="280">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="800" y1="90" x2="700" y2="260">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.9s" repeatCount="indefinite"/>
+    </line>
+    <line x1="1000" y1="110" x2="900" y2="270">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.7s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Algorithm Flow Indicators -->
+  <g opacity="0.8">
+    <!-- More Trains Indicator -->
+    <g transform="translate(150, 50)">
+      <rect x="0" y="0" width="100" height="30" rx="5" fill="rgba(46, 204, 113, 0.2)" stroke="#27ae60" stroke-width="2"/>
+      <text x="50" y="12" fill="#27ae60" font-size="8" font-family="Arial" text-anchor="middle">More Trains</text>
+      <text x="50" y="22" fill="#27ae60" font-size="7" font-family="Arial" text-anchor="middle">+15% Capacity</text>
+    </g>
+    
+    <!-- Schedule Adherence Indicator -->
+    <g transform="translate(350, 30)">
+      <rect x="0" y="0" width="100" height="30" rx="5" fill="rgba(52, 152, 219, 0.2)" stroke="#3498db" stroke-width="2"/>
+      <text x="50" y="12" fill="#3498db" font-size="8" font-family="Arial" text-anchor="middle">Schedule</text>
+      <text x="50" y="22" fill="#3498db" font-size="7" font-family="Arial" text-anchor="middle">98.5% On-time</text>
+    </g>
+    
+    <!-- Traffic Rerouting Indicator -->
+    <g transform="translate(750, 40)">
+      <rect x="0" y="0" width="100" height="30" rx="5" fill="rgba(231, 76, 60, 0.2)" stroke="#e74c3c" stroke-width="2"/>
+      <text x="50" y="12" fill="#e74c3c" font-size="8" font-family="Arial" text-anchor="middle">Rerouting</text>
+      <text x="50" y="22" fill="#e74c3c" font-size="7" font-family="Arial" text-anchor="middle">-25% Delays</text>
+    </g>
+    
+    <!-- Scenario Planning Indicator -->
+    <g transform="translate(950, 60)">
+      <rect x="0" y="0" width="100" height="30" rx="5" fill="rgba(155, 89, 182, 0.2)" stroke="#9b59b6" stroke-width="2"/>
+      <text x="50" y="12" fill="#9b59b6" font-size="8" font-family="Arial" text-anchor="middle">Scenarios</text>
+      <text x="50" y="22" fill="#9b59b6" font-size="7" font-family="Arial" text-anchor="middle">Multi-KPI</text>
+    </g>
+  </g>
+  
+  <!-- Performance Metrics Dashboard -->
+  <g transform="translate(50, 320)" opacity="0.8">
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="1"/>
+    <text x="10" y="15" fill="#ffffff" font-size="10" font-family="Arial">Optimization Results</text>
+    <text x="10" y="30" fill="#27ae60" font-size="8" font-family="Arial">• Efficiency: +23%</text>
+    <text x="10" y="42" fill="#3498db" font-size="8" font-family="Arial">• Capacity: +18%</text>
+    <text x="10" y="54" fill="#e74c3c" font-size="8" font-family="Arial">• Delays: -31%</text>
+  </g>
+  
+  <!-- Algorithm Status Indicators -->
+  <g transform="translate(950, 320)" opacity="0.8">
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="1"/>
+    <text x="10" y="15" fill="#ffffff" font-size="10" font-family="Arial">Algorithm Status</text>
+    <text x="10" y="30" fill="#27ae60" font-size="8" font-family="Arial">• Active: 4/4</text>
+    <text x="10" y="42" fill="#3498db" font-size="8" font-family="Arial">• Processing: 2.3ms</text>
+    <text x="10" y="54" fill="#9b59b6" font-size="8" font-family="Arial">• Accuracy: 99.2%</text>
+  </g>
+  
+  <!-- Moving optimization particles -->
+  <g opacity="0.7">
+    <circle cx="100" cy="150" r="3" fill="#ffffff">
+      <animate attributeName="cx" values="100;500;100" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="200" r="2" fill="#4facfe">
+      <animate attributeName="cx" values="200;600;200" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="180" r="2.5" fill="#43e97b">
+      <animate attributeName="cx" values="300;700;300" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="160" r="2" fill="#00f2fe">
+      <animate attributeName="cx" values="400;800;400" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Data flow streams -->
+  <g opacity="0.6">
+    <path d="M0,50 Q200,40 400,60 Q600,50 800,70 Q1000,60 1200,50" 
+          stroke="#ffffff" stroke-width="1" fill="none" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M0,350 Q200,340 400,360 Q600,350 800,370 Q1000,360 1200,350" 
+          stroke="#4facfe" stroke-width="1" fill="none" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Floating algorithm elements -->
+  <g opacity="0.7">
+    <circle cx="120" cy="80" r="2" fill="#ffffff">
+      <animate attributeName="cy" values="80;60;80" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="320" cy="100" r="1.5" fill="#4facfe">
+      <animate attributeName="cy" values="100;80;100" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="520" cy="70" r="2" fill="#43e97b">
+      <animate attributeName="cy" values="70;50;70" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="90" r="1.5" fill="#00f2fe">
+      <animate attributeName="cy" values="90;70;90" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="920" cy="110" r="2" fill="#f093fb">
+      <animate attributeName="cy" values="110;90;110" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Optimization process indicators -->
+  <g opacity="0.8">
+    <g transform="translate(100, 350)">
+      <rect x="0" y="0" width="80" height="20" rx="5" fill="rgba(46, 204, 113, 0.2)" stroke="#27ae60" stroke-width="1"/>
+      <text x="40" y="13" fill="#27ae60" font-size="8" font-family="Arial" text-anchor="middle">Analyze</text>
+    </g>
+    
+    <g transform="translate(200, 350)">
+      <rect x="0" y="0" width="80" height="20" rx="5" fill="rgba(52, 152, 219, 0.2)" stroke="#3498db" stroke-width="1"/>
+      <text x="40" y="13" fill="#3498db" font-size="8" font-family="Arial" text-anchor="middle">Optimize</text>
+    </g>
+    
+    <g transform="translate(300, 350)">
+      <rect x="0" y="0" width="80" height="20" rx="5" fill="rgba(231, 76, 60, 0.2)" stroke="#e74c3c" stroke-width="1"/>
+      <text x="40" y="13" fill="#e74c3c" font-size="8" font-family="Arial" text-anchor="middle">Execute</text>
+    </g>
+    
+    <g transform="translate(400, 350)">
+      <rect x="0" y="0" width="80" height="20" rx="5" fill="rgba(155, 89, 182, 0.2)" stroke="#9b59b6" stroke-width="1"/>
+      <text x="40" y="13" fill="#9b59b6" font-size="8" font-family="Arial" text-anchor="middle">Monitor</text>
+    </g>
+  </g>
+  
+  <!-- Process flow arrows -->
+  <g opacity="0.7">
+    <path d="M180,360 L200,360 L195,355 M200,360 L195,365" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <path d="M280,360 L300,360 L295,355 M300,360 L295,365" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <path d="M380,360 L400,360 L395,355 M400,360 L395,365" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

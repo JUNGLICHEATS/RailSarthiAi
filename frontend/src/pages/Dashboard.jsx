@@ -509,9 +509,30 @@ export default function Dashboard(){
       </div>
    
  {/* Indian Railway Optimization Features */}
- <div className="card" style={{gridColumn:'span 12'}}>
-        <h3 style={{fontSize: '24px', fontWeight: '700', marginBottom: '20px'}}>
-          Our Advanced Optimization Algorithms Help You:
+ <div className="card" style={{gridColumn:'span 12', padding: 0, overflow: 'hidden', position: 'relative'}}>
+        <div style={{
+          position: 'relative',
+          backgroundImage: `url('/optimization-features-background.svg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          padding: '40px',
+          borderRadius: '12px'
+        }}>
+          {/* Dark overlay for better text readability */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.3)',
+            borderRadius: '12px',
+            zIndex: 1
+          }}></div>
+          <div style={{position: 'relative', zIndex: 2}}>
+        <h3 style={{fontSize: '24px', fontWeight: '700', marginBottom: '20px', color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
+          🚀 Our Advanced Optimization Algorithms Help You:
         </h3>
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginTop: '20px'}}>
           <div className="animate-slide-in" style={{textAlign: 'center', padding: '20px'}}>
@@ -521,7 +542,7 @@ export default function Dashboard(){
             }}>
               <img src="/trainrule1.webp" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
-            <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
+            <h4 style={{margin: '0 0 8px 0', color: '#ffffff', fontWeight: '600', textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
               Run more trains or schedule more maintenance.
             </h4>
           </div>
@@ -533,7 +554,7 @@ export default function Dashboard(){
             }}>
               <img src="/images (3).jpg" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
-            <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
+            <h4 style={{margin: '0 0 8px 0', color: '#ffffff', fontWeight: '600', textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
               Change train meets and passes to improve schedule adherence.
             </h4>
           </div>
@@ -545,7 +566,7 @@ export default function Dashboard(){
             }}>
               <img src="/railwayrule2.jpg" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
-            <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
+            <h4 style={{margin: '0 0 8px 0', color: '#ffffff', fontWeight: '600', textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
               Re-route traffic to reduce congestion and delay.
             </h4>
           </div>
@@ -557,9 +578,11 @@ export default function Dashboard(){
             }}>
               <img src="/images (4).jpg" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
-            <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
+            <h4 style={{margin: '0 0 8px 0', color: '#ffffff', fontWeight: '600', textShadow: '1px 1px 2px rgba(0,0,0,0.5)'}}>
               Create multiple scenarios and compare KPIs to find the best plan.
             </h4>
+          </div>
+        </div>
           </div>
         </div>
       </div>
