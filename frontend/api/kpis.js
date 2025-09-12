@@ -1,19 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import { parse } from 'csv-parse/sync';
+import { trainData } from './data.js';
 
 export default function handler(req, res) {
   try {
-    // Read CSV file from public directory
-    const csvPath = path.join(process.cwd(), 'public', 'data', 'train_data.csv');
-    const csvContent = fs.readFileSync(csvPath, 'utf8');
-    
-    // Parse CSV
-    const trains = parse(csvContent, {
-      columns: true,
-      skip_empty_lines: true,
-      trim: true
-    });
+    const trains = trainData;
     
     // Calculate KPIs
     const total = trains.length;
