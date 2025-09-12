@@ -299,36 +299,6 @@ export default function TrainDetails() {
         </div>
       )}
 
-      {/* Statistics */}
-      <div className="card" style={{gridColumn:'span 12'}}>
-        <h3>📊 Train Statistics</h3>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px'}}>
-          <div style={{padding: '16px', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center'}}>
-            <div style={{fontSize: '24px', fontWeight: 'bold', color: '#0f9d58'}}>
-              {trains.filter(t => t.TrackStatus === 'On Time').length}
-            </div>
-            <div style={{fontSize: '14px', color: '#666'}}>On Time</div>
-          </div>
-          <div style={{padding: '16px', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center'}}>
-            <div style={{fontSize: '24px', fontWeight: 'bold', color: '#f59e0b'}}>
-              {trains.filter(t => t.TrackStatus === 'Delayed').length}
-            </div>
-            <div style={{fontSize: '14px', color: '#666'}}>Delayed</div>
-          </div>
-          <div style={{padding: '16px', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center'}}>
-            <div style={{fontSize: '24px', fontWeight: 'bold', color: '#ef4444'}}>
-              {trains.filter(t => t.Disruption !== 'None').length}
-            </div>
-            <div style={{fontSize: '14px', color: '#666'}}>With Disruptions</div>
-          </div>
-          <div style={{padding: '16px', background: '#f8f9fa', borderRadius: '8px', textAlign: 'center'}}>
-            <div style={{fontSize: '24px', fontWeight: 'bold', color: '#1976d2'}}>
-              {trains.length}
-            </div>
-            <div style={{fontSize: '14px', color: '#666'}}>Total Trains</div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

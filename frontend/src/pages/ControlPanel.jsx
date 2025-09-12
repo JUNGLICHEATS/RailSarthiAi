@@ -535,7 +535,7 @@ export default function ControlPanel() {
 
             {/* Train Information Panel */}
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px'}}>
-              {animatedTrains.slice(0, 4).map((train, index) => (
+              {animatedTrains.slice(0, 6).map((train, index) => (
                 <div
                   key={train.id}
                   className="card animate-slide-in"
@@ -591,7 +591,7 @@ export default function ControlPanel() {
           <div className="card">
             <h3>🚦 Signal Control System</h3>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px'}}>
-              {trains.slice(0, 6).map((train, index) => (
+              {trains.slice(0, 8).map((train, index) => (
                 <div key={index} className="card animate-slide-in" style={{animationDelay: `${index * 0.1}s`}}>
                   <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px'}}>
                     <h4 style={{margin: 0}}>Signal {index + 1}</h4>
@@ -656,36 +656,6 @@ export default function ControlPanel() {
           </div>
         </div>
       )}
-
-      {/* Quick Actions */}
-      <div className="card" style={{gridColumn: 'span 12'}}>
-        <h3>⚡ Quick Actions</h3>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px'}}>
-          {[
-            { name: 'All Signals Green', icon: '🚦', color: 'gov-button-green' },
-            { name: 'Clear All Platforms', icon: '🚂', color: 'gov-button' },
-            { name: 'Maintenance Mode', icon: '🔧', color: 'gov-button-orange' },
-            { name: 'Emergency Stop', icon: '🚨', color: 'gov-button-red' }
-          ].map((action, index) => (
-            <button
-              key={action.name}
-              className={`gov-button ${action.color} animate-bounce`}
-              style={{
-                padding: '16px',
-                fontSize: '16px',
-                fontWeight: 'bold',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                animationDelay: `${index * 0.1}s`
-              }}
-            >
-              {action.icon} {action.name}
-            </button>
-          ))}
-        </div>
-      </div>
     </div>
   )
 }
