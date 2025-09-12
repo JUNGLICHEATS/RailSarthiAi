@@ -1,9 +1,11 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
 import './App.css'
 import brand from './assets/brand.png'
+import { useAuth } from './contexts/AuthContext'
 
 function App() {
   const location = useLocation()
+  const { isAuthenticated, user, logout } = useAuth()
   
   const getCurrentTime = () => {
     return new Date().toLocaleString('en-IN', {
@@ -41,7 +43,37 @@ function App() {
             <a href="/control-panel">CONTROL PANEL</a>
             <a href="/train-details">TRAIN DETAILS</a>
             <a href="/kpi">KPI DETAILS</a>
-            <a href="/login" className="login-btn">LOGIN</a>
+            {isAuthenticated ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <span style={{ color: 'white', fontSize: '14px' }}>
+                  Welcome, {user?.email || 'User'}
+                </span>
+                <button 
+                  onClick={logout}
+                  style={{
+                    background: 'rgba(255,255,255,0.2)',
+                    color: 'white',
+                    border: '1px solid rgba(255,255,255,0.3)',
+                    padding: '8px 16px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = 'rgba(255,255,255,0.3)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.background = 'rgba(255,255,255,0.2)'
+                  }}
+                >
+                  LOGOUT
+                </button>
+              </div>
+            ) : (
+              <a href="/login" className="login-btn">LOGIN</a>
+            )}
           </nav>
           <div className="gov-time">
             

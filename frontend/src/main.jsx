@@ -9,12 +9,35 @@ import KPI from './pages/KPI.jsx'
 import TrainDetails from './pages/TrainDetails.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import { AuthProvider } from './contexts/AuthContext.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 const router = createBrowserRouter([
   { path: '/', element: <App />, children: [
     { index: true, element: <Dashboard /> },
-    { path: 'control-panel', element: <ControlPanel /> },
-    { path: 'kpi', element: <KPI /> },
-    { path: 'train-details', element: <TrainDetails /> },
+    { 
+      path: 'control-panel', 
+      element: (
+        <ProtectedRoute>
+          <ControlPanel />
+        </ProtectedRoute>
+      )
+    },
+    { 
+      path: 'kpi', 
+      element: (
+        <ProtectedRoute>
+          <KPI />
+        </ProtectedRoute>
+      )
+    },
+    { 
+      path: 'train-details', 
+      element: (
+        <ProtectedRoute>
+          <TrainDetails />
+        </ProtectedRoute>
+      )
+    },
     { path: 'login', element: <Login /> },
     { path: 'signup', element: <Signup /> },
   ]}
@@ -22,6 +45,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

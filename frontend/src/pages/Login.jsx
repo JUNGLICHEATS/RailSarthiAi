@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,15 @@ export default function Login() {
   const [otp, setOtp] = useState('')
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
+  const { login, isAuthenticated } = useAuth()
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/control-panel', { replace: true })
+    }
+  }, [isAuthenticated, navigate])
 
   // Generate random captcha text
   const generateCaptcha = () => {
@@ -91,9 +101,18 @@ export default function Login() {
       // Simulate OTP verification
       await new Promise(resolve => setTimeout(resolve, 1000))
       
+      // Login the user
+      login({
+        email: formData.email,
+        name: formData.email.split('@')[0] // Use email prefix as name
+      })
+      
       setMessage('Login successful! Redirecting...')
+      
+      // Get the intended destination or default to control-panel
+      const from = location.state?.from?.pathname || '/control-panel'
       setTimeout(() => {
-        navigate('/')
+        navigate(from, { replace: true })
       }, 1500)
     } catch (error) {
       setMessage('Invalid OTP. Please try again.')

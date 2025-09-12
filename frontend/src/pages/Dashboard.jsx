@@ -80,7 +80,7 @@ export default function Dashboard(){
   <img
     src="/railwayrule2.jpg" 
     alt="Graph Placeholder"
-    style={{ width: 'auto', height: 'auto', marginBottom: '10px' }}
+    style={{ width: 'auto', height: 'auto', marginBottom: '10px', borderRadius: '12px'  }}
   />
 </div>
 </div>
@@ -99,7 +99,7 @@ export default function Dashboard(){
                 <div className="solutions-heading">Visibility</div>
                 <div className="solutions-text">See real-time train locations, train paths, and maintenance opportunities in an intuitive graphical interface.</div>
               </div>
-              <img src="/arrow-right.svg" alt="to" className="solutions-arrow" />
+              <img src="/arrow-right.svg" alt="to" className="solutions-arrow"  />
               <div className="solutions-block">
                 <div className="solutions-heading">Decision support</div>
                 <div className="solutions-text">Unlock new insights and opportunities with the help of actionable KPIs.</div>
@@ -129,7 +129,7 @@ export default function Dashboard(){
               width: 'auto',
               height: 'auto',
             }}>
-              <img src="/trainrule1.webp" alt="Train" style={{width:'200px',height:'200px'}}/>
+              <img src="/trainrule1.webp" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Run more trains or schedule more maintenance.
@@ -141,7 +141,7 @@ export default function Dashboard(){
               width: 'auto',
               height: 'auto',
             }}>
-              <img src="/images (3).jpg" alt="Train" style={{width:'200px',height:'200px'}}/>
+              <img src="/images (3).jpg" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Change train meets and passes to improve schedule adherence.
@@ -153,7 +153,7 @@ export default function Dashboard(){
               width: 'auto',
               height: 'auto',
             }}>
-              <img src="/railwayrule2.jpg" alt="Train" style={{width:'200px',height:'200px'}}/>
+              <img src="/railwayrule2.jpg" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Re-route traffic to reduce congestion and delay.
@@ -165,7 +165,7 @@ export default function Dashboard(){
               width: 'auto',
               height: 'auto',
             }}>
-              <img src="/images (4).jpg" alt="Train" style={{width:'200px',height:'200px'}}/>
+              <img src="/images (4).jpg" alt="Train" style={{width:'200px',height:'200px', borderRadius: '12px' }}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Create multiple scenarios and compare KPIs to find the best plan.
