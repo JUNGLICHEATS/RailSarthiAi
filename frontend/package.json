@@ -10,15 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^6.1.9",
+    "@mui/material": "^6.1.9",
+    "axios": "^1.7.9",
+    "csv-parse": "^6.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^6.28.0",
-    "recharts": "^2.12.7",
-    "axios": "^1.7.9",
-    "@mui/material": "^6.1.9",
-    "@mui/icons-material": "^6.1.9",
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5"
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
