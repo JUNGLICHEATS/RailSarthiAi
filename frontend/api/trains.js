@@ -5,7 +5,7 @@ import { parse } from 'csv-parse/sync';
 export default function handler(req, res) {
   try {
     // Read CSV file from public directory
-    const csvPath = path.join(process.cwd(), 'public', 'data', 'train_data.csv');
+    const csvPath = path.join(process.cwd(),'data', 'train_data.csv');
     const csvContent = fs.readFileSync(csvPath, 'utf8');
     
     // Parse CSV
