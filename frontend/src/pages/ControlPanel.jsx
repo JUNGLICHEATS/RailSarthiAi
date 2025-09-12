@@ -105,21 +105,7 @@ export default function ControlPanel() {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{
-          position: 'absolute',
-          top: '20px',
-          right: '20px',
-          width: '60px',
-          height: '60px',
-          background: 'rgba(255,255,255,0.1)',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '24px'
-        }}>
-          ⚙️
-        </div>
+     
         
         <h1 style={{
           margin: '0 0 32px 0', 
@@ -129,18 +115,22 @@ export default function ControlPanel() {
           alignItems: 'center',
           gap: '16px'
         }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            background: 'rgba(255,255,255,0.2)',
-            borderRadius: '12px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '24px'
-          }}>
-            ⚙️
-          </div>
+        <div style={{
+  width: '48px',
+  height: '48px',
+  background: 'rgba(255,255,255,0.2)',
+  borderRadius: '12px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}}>
+  <img 
+    src="/brand1.jpg" 
+    alt="Settings Icon" 
+    style={{ width: '48px', height: '48px' , borderRadius: '12px' }} 
+  />
+</div>
+
           Indian Railways Control System
         </h1>
         
@@ -158,8 +148,8 @@ export default function ControlPanel() {
             <div style={{fontSize: '14px', opacity: '0.8'}}>On schedule: {isLoading ? '...' : trains.filter(t => t.TrackStatus === 'On Time').length}</div>
           </div>
           <div className="animate-slide-in" style={{animationDelay: '0.2s'}}>
-            <div style={{fontSize: '16px', opacity: '0.9', marginBottom: '8px', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '8px'}}>
-              🚦 Traffic Control
+            <div style={{fontSize: '16px', opacity: '0.9',paddingLeft: '56px', marginBottom: '8px', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                     🚦 Traffic Control
             </div>
             <div style={{fontSize: '32px', fontWeight: 'bold', marginBottom: '4px'}}>Active</div>
             <div style={{fontSize: '14px', opacity: '0.8'}}>Signals: {isLoading ? '...' : Math.min(trains.length, 8)} monitored</div>

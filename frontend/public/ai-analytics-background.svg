@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="railGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#43e97b;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <radialGradient id="dataGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0.1" />
+    </radialGradient>
+    
+    <!-- Pattern for circuit board -->
+    <pattern id="circuitPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M0,20 L40,20 M20,0 L20,40" stroke="#4facfe" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="20" cy="20" r="2" fill="#4facfe" opacity="0.4"/>
+    </pattern>
+    
+    <!-- Filter for glow effects -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#railGradient)"/>
+  
+  <!-- Circuit board pattern overlay -->
+  <rect width="1200" height="400" fill="url(#circuitPattern)" opacity="0.2"/>
+  
+  <!-- Railway tracks (perspective view) -->
+  <g opacity="0.6">
+    <!-- Track 1 -->
+    <path d="M0,300 Q600,200 1200,250" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.4"/>
+    <path d="M0,310 Q600,210 1200,260" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.4"/>
+    
+    <!-- Track ties -->
+    <g stroke="#ffffff" stroke-width="1" opacity="0.3">
+      <line x1="0" y1="305" x2="0" y2="305"/>
+      <line x1="100" y1="295" x2="100" y2="305"/>
+      <line x1="200" y1="285" x2="200" y2="295"/>
+      <line x1="300" y1="275" x2="300" y2="285"/>
+      <line x1="400" y1="265" x2="400" y2="275"/>
+      <line x1="500" y1="255" x2="500" y2="265"/>
+      <line x1="600" y1="245" x2="600" y2="255"/>
+      <line x1="700" y1="250" x2="700" y2="260"/>
+      <line x1="800" y1="255" x2="800" y2="265"/>
+      <line x1="900" y1="260" x2="900" y2="270"/>
+      <line x1="1000" y1="265" x2="1000" y2="275"/>
+      <line x1="1100" y1="270" x2="1100" y2="280"/>
+      <line x1="1200" y1="275" x2="1200" y2="285"/>
+    </g>
+  </g>
+  
+  <!-- Neural network nodes and connections -->
+  <g filter="url(#glow)">
+    <!-- Input layer nodes -->
+    <circle cx="150" cy="100" r="8" fill="url(#neuralGradient)" opacity="0.8"/>
+    <circle cx="150" cy="150" r="8" fill="url(#neuralGradient)" opacity="0.8"/>
+    <circle cx="150" cy="200" r="8" fill="url(#neuralGradient)" opacity="0.8"/>
+    <circle cx="150" cy="250" r="8" fill="url(#neuralGradient)" opacity="0.8"/>
+    
+    <!-- Hidden layer 1 nodes -->
+    <circle cx="350" cy="80" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    <circle cx="350" cy="130" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    <circle cx="350" cy="180" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    <circle cx="350" cy="230" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    <circle cx="350" cy="280" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    
+    <!-- Hidden layer 2 nodes -->
+    <circle cx="550" cy="100" r="12" fill="url(#neuralGradient)" opacity="1"/>
+    <circle cx="550" cy="150" r="12" fill="url(#neuralGradient)" opacity="1"/>
+    <circle cx="550" cy="200" r="12" fill="url(#neuralGradient)" opacity="1"/>
+    <circle cx="550" cy="250" r="12" fill="url(#neuralGradient)" opacity="1"/>
+    
+    <!-- Output layer nodes -->
+    <circle cx="750" cy="120" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    <circle cx="750" cy="180" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    <circle cx="750" cy="240" r="10" fill="url(#neuralGradient)" opacity="0.9"/>
+    
+    <!-- Neural network connections -->
+    <g stroke="url(#neuralGradient)" stroke-width="1" opacity="0.6">
+      <!-- Input to Hidden 1 -->
+      <line x1="158" y1="100" x2="340" y2="80"/>
+      <line x1="158" y1="100" x2="340" y2="130"/>
+      <line x1="158" y1="100" x2="340" y2="180"/>
+      <line x1="158" y1="150" x2="340" y2="80"/>
+      <line x1="158" y1="150" x2="340" y2="130"/>
+      <line x1="158" y1="150" x2="340" y2="180"/>
+      <line x1="158" y1="150" x2="340" y2="230"/>
+      <line x1="158" y1="200" x2="340" y2="130"/>
+      <line x1="158" y1="200" x2="340" y2="180"/>
+      <line x1="158" y1="200" x2="340" y2="230"/>
+      <line x1="158" y1="200" x2="340" y2="280"/>
+      <line x1="158" y1="250" x2="340" y2="180"/>
+      <line x1="158" y1="250" x2="340" y2="230"/>
+      <line x1="158" y1="250" x2="340" y2="280"/>
+      
+      <!-- Hidden 1 to Hidden 2 -->
+      <line x1="360" y1="80" x2="538" y2="100"/>
+      <line x1="360" y1="80" x2="538" y2="150"/>
+      <line x1="360" y1="130" x2="538" y2="100"/>
+      <line x1="360" y1="130" x2="538" y2="150"/>
+      <line x1="360" y1="130" x2="538" y2="200"/>
+      <line x1="360" y1="180" x2="538" y2="150"/>
+      <line x1="360" y1="180" x2="538" y2="200"/>
+      <line x1="360" y1="180" x2="538" y2="250"/>
+      <line x1="360" y1="230" x2="538" y2="200"/>
+      <line x1="360" y1="230" x2="538" y2="250"/>
+      <line x1="360" y1="280" x2="538" y2="250"/>
+      
+      <!-- Hidden 2 to Output -->
+      <line x1="562" y1="100" x2="740" y2="120"/>
+      <line x1="562" y1="100" x2="740" y2="180"/>
+      <line x1="562" y1="150" x2="740" y2="120"/>
+      <line x1="562" y1="150" x2="740" y2="180"/>
+      <line x1="562" y1="150" x2="740" y2="240"/>
+      <line x1="562" y1="200" x2="740" y2="180"/>
+      <line x1="562" y1="200" x2="740" y2="240"/>
+      <line x1="562" y1="250" x2="740" y2="240"/>
+    </g>
+  </g>
+  
+  <!-- Data flow particles -->
+  <g opacity="0.7">
+    <circle cx="200" cy="120" r="2" fill="#ffffff" opacity="0.8">
+      <animate attributeName="cx" values="200;800" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="180" cy="180" r="2" fill="#4facfe" opacity="0.8">
+      <animate attributeName="cx" values="180;780" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="220" r="2" fill="#43e97b" opacity="0.8">
+      <animate attributeName="cx" values="220;820" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- AI/ML Icons and symbols -->
+  <g opacity="0.8">
+    <!-- Brain/AI symbol -->
+    <g transform="translate(950, 80)">
+      <path d="M0,20 Q-15,15 -20,0 Q-15,-15 0,-20 Q15,-15 20,0 Q15,15 0,20 Z" 
+            fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="-8" cy="-5" r="2" fill="#ffffff"/>
+      <circle cx="8" cy="-5" r="2" fill="#ffffff"/>
+      <path d="M-5,5 Q0,10 5,5" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    </g>
+    
+    <!-- Chart/analytics symbol -->
+    <g transform="translate(1000, 120)">
+      <rect x="0" y="15" width="3" height="10" fill="#4facfe"/>
+      <rect x="5" y="10" width="3" height="15" fill="#43e97b"/>
+      <rect x="10" y="5" width="3" height="20" fill="#00f2fe"/>
+      <rect x="15" y="12" width="3" height="13" fill="#ffffff"/>
+    </g>
+    
+    <!-- Prediction arrow -->
+    <g transform="translate(1050, 180)">
+      <path d="M0,0 L20,0 L15,-5 M20,0 L15,5" stroke="#ffffff" stroke-width="2" fill="none"/>
+      <text x="25" y="5" fill="#ffffff" font-size="12" font-family="Arial">Predict</text>
+    </g>
+  </g>
+  
+  <!-- Railway train silhouette -->
+  <g transform="translate(400, 320)" opacity="0.6">
+    <!-- Train body -->
+    <rect x="0" y="0" width="80" height="25" rx="5" fill="#ffffff" opacity="0.7"/>
+    <!-- Train windows -->
+    <rect x="5" y="5" width="15" height="8" rx="2" fill="#4facfe" opacity="0.8"/>
+    <rect x="25" y="5" width="15" height="8" rx="2" fill="#4facfe" opacity="0.8"/>
+    <rect x="45" y="5" width="15" height="8" rx="2" fill="#4facfe" opacity="0.8"/>
+    <rect x="65" y="5" width="10" height="8" rx="2" fill="#4facfe" opacity="0.8"/>
+    <!-- Wheels -->
+    <circle cx="15" cy="30" r="5" fill="#333333" opacity="0.8"/>
+    <circle cx="35" cy="30" r="5" fill="#333333" opacity="0.8"/>
+    <circle cx="55" cy="30" r="5" fill="#333333" opacity="0.8"/>
+    <circle cx="75" cy="30" r="5" fill="#333333" opacity="0.8"/>
+  </g>
+  
+  <!-- Data streams -->
+  <g opacity="0.5">
+    <path d="M50,50 Q300,100 550,80" stroke="#4facfe" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M50,350 Q300,300 550,320" stroke="#43e97b" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M50,200 Q300,150 550,200" stroke="#00f2fe" stroke-width="2" fill="none" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Floating data points -->
+  <g opacity="0.6">
+    <circle cx="100" cy="50" r="3" fill="#ffffff">
+      <animate attributeName="cy" values="50;30;50" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="80" r="2" fill="#4facfe">
+      <animate attributeName="cy" values="80;60;80" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="500" cy="120" r="2.5" fill="#43e97b">
+      <animate attributeName="cy" values="120;100;120" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="90" r="2" fill="#00f2fe">
+      <animate attributeName="cy" values="90;70;90" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Performance metrics display -->
+  <g transform="translate(850, 250)" opacity="0.8">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="1"/>
+    <text x="10" y="20" fill="#ffffff" font-size="10" font-family="Arial">Performance</text>
+    <text x="10" y="35" fill="#4facfe" font-size="12" font-family="Arial">Accuracy: 98.5%</text>
+    <text x="10" y="50" fill="#43e97b" font-size="12" font-family="Arial">Speed: 2.3ms</text>
+    <text x="10" y="65" fill="#00f2fe" font-size="12" font-family="Arial">Uptime: 99.9%</text>
+  </g>
+  
+  <!-- Algorithm flow indicators -->
+  <g opacity="0.7">
+    <path d="M200,50 L250,50 L240,45 M250,50 L240,55" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="255" y="55" fill="#ffffff" font-size="10" font-family="Arial">ML</text>
+    
+    <path d="M450,50 L500,50 L490,45 M500,50 L490,55" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="505" y="55" fill="#ffffff" font-size="10" font-family="Arial">AI</text>
+    
+    <path d="M700,50 L750,50 L740,45 M750,50 L740,55" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="755" y="55" fill="#ffffff" font-size="10" font-family="Arial">Predict</text>
+  </g>
+</svg>

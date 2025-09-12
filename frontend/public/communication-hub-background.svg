@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="commGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="messageGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#4facfe;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#43e97b;stop-opacity:0.9" />
+    </linearGradient>
+    
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#43e97b;stop-opacity:0.4" />
+    </radialGradient>
+    
+    <!-- Pattern for network connections -->
+    <pattern id="networkPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none"/>
+      <circle cx="30" cy="30" r="2" fill="#43e97b" opacity="0.3"/>
+      <path d="M0,30 L60,30 M30,0 L30,60" stroke="#43e97b" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+    
+    <!-- Filter for glow effects -->
+    <filter id="commGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Filter for pulse effect -->
+    <filter id="pulse" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#commGradient)"/>
+  
+  <!-- Network pattern overlay -->
+  <rect width="1200" height="400" fill="url(#networkPattern)" opacity="0.3"/>
+  
+  <!-- Central Communication Hub -->
+  <g transform="translate(600, 200)" filter="url(#pulse)">
+    <circle cx="0" cy="0" r="40" fill="url(#hubGlow)" opacity="0.9">
+      <animate attributeName="r" values="40;45;40" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="25" fill="rgba(255,255,255,0.3)" stroke="#ffffff" stroke-width="2"/>
+    <text x="0" y="5" fill="#ffffff" font-size="12" font-family="Arial" text-anchor="middle">HUB</text>
+  </g>
+  
+  <!-- Communication Nodes -->
+  <g filter="url(#commGlow)">
+    <!-- Dispatcher stations -->
+    <circle cx="200" cy="100" r="15" fill="url(#hubGlow)" opacity="0.8">
+      <animate attributeName="r" values="15;18;15" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="200" y="105" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">D1</text>
+    
+    <circle cx="1000" cy="120" r="15" fill="url(#hubGlow)" opacity="0.8">
+      <animate attributeName="r" values="15;18;15" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="1000" y="125" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">D2</text>
+    
+    <!-- Operator stations -->
+    <circle cx="150" cy="250" r="12" fill="#4facfe" opacity="0.7"/>
+    <text x="150" y="255" fill="#ffffff" font-size="7" font-family="Arial" text-anchor="middle">O1</text>
+    
+    <circle cx="1050" cy="280" r="12" fill="#4facfe" opacity="0.7"/>
+    <text x="1050" y="285" fill="#ffffff" font-size="7" font-family="Arial" text-anchor="middle">O2</text>
+    
+    <!-- Control centers -->
+    <circle cx="300" cy="80" r="10" fill="#00f2fe" opacity="0.8"/>
+    <text x="300" y="85" fill="#ffffff" font-size="6" font-family="Arial" text-anchor="middle">CC</text>
+    
+    <circle cx="900" cy="90" r="10" fill="#00f2fe" opacity="0.8"/>
+    <text x="900" y="95" fill="#ffffff" font-size="6" font-family="Arial" text-anchor="middle">CC</text>
+  </g>
+  
+  <!-- Communication Links -->
+  <g stroke="url(#messageGradient)" stroke-width="2" fill="none" opacity="0.7">
+    <!-- Main hub connections -->
+    <line x1="600" y1="200" x2="200" y2="100">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="1000" y2="120">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="150" y2="250">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="600" y1="200" x2="1050" y2="280">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Inter-station connections -->
+    <line x1="200" y1="100" x2="300" y2="80">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="1000" y1="120" x2="900" y2="90">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Message bubbles -->
+  <g opacity="0.8">
+    <!-- Message 1 -->
+    <g transform="translate(250, 60)">
+      <rect x="0" y="0" width="80" height="25" rx="12" fill="rgba(255,255,255,0.9)" stroke="#43e97b" stroke-width="1"/>
+      <text x="40" y="16" fill="#333333" font-size="8" font-family="Arial" text-anchor="middle">Route Update</text>
+      <animateTransform attributeName="transform" type="translate" 
+                       values="250,60; 650,60; 250,60" dur="4s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Message 2 -->
+    <g transform="translate(800, 40)">
+      <rect x="0" y="0" width="70" height="25" rx="12" fill="rgba(79,172,254,0.9)" stroke="#4facfe" stroke-width="1"/>
+      <text x="35" y="16" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">Status OK</text>
+      <animateTransform attributeName="transform" type="translate" 
+                       values="800,40; 400,40; 800,40" dur="3.5s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Message 3 -->
+    <g transform="translate(100, 200)">
+      <rect x="0" y="0" width="90" height="25" rx="12" fill="rgba(67,233,123,0.9)" stroke="#43e97b" stroke-width="1"/>
+      <text x="45" y="16" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">Incident Report</text>
+      <animateTransform attributeName="transform" type="translate" 
+                       values="100,200; 600,200; 100,200" dur="5s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Voice-to-text indicators -->
+  <g opacity="0.7">
+    <g transform="translate(400, 150)">
+      <circle cx="0" cy="0" r="20" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-width="2"/>
+      <path d="M-8,-5 Q0,-12 8,-5 Q6,0 0,6 Q-6,0 -8,-5" fill="#ffffff" opacity="0.8"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </g>
+    
+    <g transform="translate(800, 180)">
+      <circle cx="0" cy="0" r="20" fill="rgba(79,172,254,0.2)" stroke="#4facfe" stroke-width="2"/>
+      <path d="M-8,-5 Q0,-12 8,-5 Q6,0 0,6 Q-6,0 -8,-5" fill="#4facfe" opacity="0.8"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Multi-language support indicators -->
+  <g opacity="0.8">
+    <g transform="translate(350, 300)">
+      <rect x="0" y="0" width="60" height="20" rx="5" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-width="1"/>
+      <text x="30" y="13" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">EN</text>
+    </g>
+    
+    <g transform="translate(420" y="300">
+      <rect x="0" y="0" width="60" height="20" rx="5" fill="rgba(79,172,254,0.2)" stroke="#4facfe" stroke-width="1"/>
+      <text x="30" y="13" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">HI</text>
+    </g>
+    
+    <g transform="translate(490, 300)">
+      <rect x="0" y="0" width="60" height="20" rx="5" fill="rgba(67,233,123,0.2)" stroke="#43e97b" stroke-width="1"/>
+      <text x="30" y="13" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">BN</text>
+    </g>
+  </g>
+  
+  <!-- Emergency broadcast system -->
+  <g opacity="0.9">
+    <g transform="translate(600, 320)">
+      <rect x="0" y="0" width="120" height="40" rx="8" fill="rgba(220,53,69,0.2)" stroke="#dc3545" stroke-width="2"/>
+      <text x="60" y="15" fill="#dc3545" font-size="10" font-family="Arial" text-anchor="middle">EMERGENCY</text>
+      <text x="60" y="28" fill="#dc3545" font-size="8" font-family="Arial" text-anchor="middle">BROADCAST</text>
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="1s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Incident tracking dashboard -->
+  <g transform="translate(50, 50)" opacity="0.8">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="1"/>
+    <text x="10" y="15" fill="#ffffff" font-size="10" font-family="Arial">Incident Tracking</text>
+    <text x="10" y="30" fill="#4facfe" font-size="8" font-family="Arial">• Active: 3</text>
+    <text x="10" y="42" fill="#43e97b" font-size="8" font-family="Arial">• Resolved: 12</text>
+    <text x="10" y="54" fill="#00f2fe" font-size="8" font-family="Arial">• Pending: 1</text>
+    <text x="10" y="66" fill="#ffffff" font-size="8" font-family="Arial">• Response: 2.3min</text>
+  </g>
+  
+  <!-- Real-time status indicators -->
+  <g opacity="0.7">
+    <g transform="translate(1000, 200)">
+      <circle cx="0" cy="0" r="8" fill="#43e97b" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="15" y="5" fill="#ffffff" font-size="8" font-family="Arial">Online</text>
+    </g>
+    
+    <g transform="translate(1000, 220)">
+      <circle cx="0" cy="0" r="8" fill="#43e97b" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="15" y="5" fill="#ffffff" font-size="8" font-family="Arial">Active</text>
+    </g>
+    
+    <g transform="translate(1000, 240)">
+      <circle cx="0" cy="0" r="8" fill="#43e97b" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="15" y="5" fill="#ffffff" font-size="8" font-family="Arial">Connected</text>
+    </g>
+  </g>
+  
+  <!-- Data flow streams -->
+  <g opacity="0.6">
+    <path d="M0,50 Q200,40 400,60 Q600,50 800,70 Q1000,60 1200,50" 
+          stroke="#ffffff" stroke-width="1" fill="none" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M0,350 Q200,340 400,360 Q600,350 800,370 Q1000,360 1200,350" 
+          stroke="#4facfe" stroke-width="1" fill="none" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Floating communication particles -->
+  <g opacity="0.7">
+    <circle cx="120" cy="80" r="2" fill="#ffffff">
+      <animate attributeName="cy" values="80;60;80" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="320" cy="100" r="1.5" fill="#4facfe">
+      <animate attributeName="cy" values="100;80;100" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="520" cy="70" r="2" fill="#43e97b">
+      <animate attributeName="cy" values="70;50;70" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="90" r="1.5" fill="#00f2fe">
+      <animate attributeName="cy" values="90;70;90" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="920" cy="110" r="2" fill="#ffffff">
+      <animate attributeName="cy" values="110;90;110" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

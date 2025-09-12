@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#38f9d7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0.9" />
+    </linearGradient>
+    
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0.3" />
+    </radialGradient>
+    
+    <!-- Pattern for network grid -->
+    <pattern id="gridPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <rect width="50" height="50" fill="none"/>
+      <path d="M0,25 L50,25 M25,0 L25,50" stroke="#4facfe" stroke-width="0.3" opacity="0.2"/>
+      <circle cx="25" cy="25" r="1" fill="#4facfe" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Filter for glow effects -->
+    <filter id="routeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Filter for pulse effect -->
+    <filter id="pulse" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#networkGradient)"/>
+  
+  <!-- Grid pattern overlay -->
+  <rect width="1200" height="400" fill="url(#gridPattern)" opacity="0.3"/>
+  
+  <!-- Railway Network Nodes -->
+  <g filter="url(#pulse)">
+    <!-- Major stations -->
+    <circle cx="100" cy="100" r="12" fill="url(#nodeGlow)" opacity="0.9">
+      <animate attributeName="r" values="12;15;12" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="80" r="10" fill="url(#nodeGlow)" opacity="0.8">
+      <animate attributeName="r" values="10;13;10" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="500" cy="120" r="12" fill="url(#nodeGlow)" opacity="0.9">
+      <animate attributeName="r" values="12;15;12" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="700" cy="90" r="10" fill="url(#nodeGlow)" opacity="0.8">
+      <animate attributeName="r" values="10;13;10" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="110" r="12" fill="url(#nodeGlow)" opacity="0.9">
+      <animate attributeName="r" values="12;15;12" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="100" r="10" fill="url(#nodeGlow)" opacity="0.8">
+      <animate attributeName="r" values="10;13;10" dur="2.7s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Secondary stations -->
+    <circle cx="200" cy="200" r="6" fill="#ffffff" opacity="0.7"/>
+    <circle cx="400" cy="180" r="6" fill="#ffffff" opacity="0.7"/>
+    <circle cx="600" cy="220" r="6" fill="#ffffff" opacity="0.7"/>
+    <circle cx="800" cy="190" r="6" fill="#ffffff" opacity="0.7"/>
+    <circle cx="1000" cy="210" r="6" fill="#ffffff" opacity="0.7"/>
+    
+    <!-- Junction points -->
+    <circle cx="350" cy="300" r="8" fill="#43e97b" opacity="0.8"/>
+    <circle cx="650" cy="280" r="8" fill="#43e97b" opacity="0.8"/>
+    <circle cx="950" cy="290" r="8" fill="#43e97b" opacity="0.8"/>
+  </g>
+  
+  <!-- Railway Tracks/Routes -->
+  <g filter="url(#routeGlow)" stroke-width="3" fill="none">
+    <!-- Main routes -->
+    <path d="M100,100 Q200,90 300,80 Q400,85 500,120 Q600,110 700,90 Q800,95 900,110 Q1000,105 1100,100" 
+          stroke="url(#routeGradient)" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Secondary routes -->
+    <path d="M100,100 Q150,150 200,200 Q250,180 300,80" 
+          stroke="#ffffff" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M500,120 Q550,170 600,220 Q650,200 700,90" 
+          stroke="#ffffff" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M900,110 Q950,160 1000,210 Q1050,190 1100,100" 
+          stroke="#ffffff" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Junction connections -->
+    <path d="M300,80 Q325,190 350,300" 
+          stroke="#43e97b" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.2s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M700,90 Q675,185 650,280" 
+          stroke="#43e97b" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2.9s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M900,110 Q925,200 950,290" 
+          stroke="#43e97b" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="3.7s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Moving trains on routes -->
+  <g opacity="0.9">
+    <!-- Train 1 -->
+    <g transform="translate(200, 95)">
+      <rect x="0" y="0" width="25" height="8" rx="2" fill="#ffffff" opacity="0.9"/>
+      <circle cx="5" cy="10" r="2" fill="#333333"/>
+      <circle cx="20" cy="10" r="2" fill="#333333"/>
+      <animateTransform attributeName="transform" type="translate" 
+                       values="200,95; 800,95; 200,95" dur="8s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Train 2 -->
+    <g transform="translate(150, 195)">
+      <rect x="0" y="0" width="20" height="6" rx="2" fill="#4facfe" opacity="0.8"/>
+      <circle cx="4" cy="8" r="1.5" fill="#333333"/>
+      <circle cx="16" cy="8" r="1.5" fill="#333333"/>
+      <animateTransform attributeName="transform" type="translate" 
+                       values="150,195; 650,195; 150,195" dur="6s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Train 3 -->
+    <g transform="translate(400, 205)">
+      <rect x="0" y="0" width="22" height="7" rx="2" fill="#43e97b" opacity="0.8"/>
+      <circle cx="4" cy="9" r="1.5" fill="#333333"/>
+      <circle cx="18" cy="9" r="1.5" fill="#333333"/>
+      <animateTransform attributeName="transform" type="translate" 
+                       values="400,205; 900,205; 400,205" dur="7s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Route optimization indicators -->
+  <g opacity="0.8">
+    <!-- Speed indicators -->
+    <g transform="translate(250, 60)">
+      <circle cx="0" cy="0" r="15" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-width="2"/>
+      <text x="0" y="5" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">65</text>
+      <text x="0" y="15" fill="#ffffff" font-size="6" font-family="Arial" text-anchor="middle">km/h</text>
+    </g>
+    
+    <g transform="translate(450, 40)">
+      <circle cx="0" cy="0" r="15" fill="rgba(67,233,123,0.3)" stroke="#43e97b" stroke-width="2"/>
+      <text x="0" y="5" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">78</text>
+      <text x="0" y="15" fill="#ffffff" font-size="6" font-family="Arial" text-anchor="middle">km/h</text>
+    </g>
+    
+    <g transform="translate(750, 50)">
+      <circle cx="0" cy="0" r="15" fill="rgba(79,172,254,0.3)" stroke="#4facfe" stroke-width="2"/>
+      <text x="0" y="5" fill="#ffffff" font-size="10" font-family="Arial" text-anchor="middle">82</text>
+      <text x="0" y="15" fill="#ffffff" font-size="6" font-family="Arial" text-anchor="middle">km/h</text>
+    </g>
+  </g>
+  
+  <!-- Weather and condition indicators -->
+  <g opacity="0.7">
+    <!-- Weather icon -->
+    <g transform="translate(150, 50)">
+      <circle cx="0" cy="0" r="8" fill="rgba(255,255,255,0.3)"/>
+      <path d="M-5,-2 Q0,-7 5,-2 Q3,0 0,3 Q-3,0 -5,-2" fill="#ffffff" opacity="0.8"/>
+    </g>
+    
+    <!-- Traffic light -->
+    <g transform="translate(550, 50)">
+      <rect x="-3" y="-8" width="6" height="16" fill="#333333" opacity="0.8"/>
+      <circle cx="0" cy="-4" r="2" fill="#43e97b" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="0" r="2" fill="#ffffff" opacity="0.5"/>
+      <circle cx="0" cy="4" r="2" fill="#ffffff" opacity="0.5"/>
+    </g>
+    
+    <!-- Fuel efficiency indicator -->
+    <g transform="translate(850, 50)">
+      <rect x="-8" y="-3" width="16" height="6" rx="3" fill="rgba(67,233,123,0.3)" stroke="#43e97b" stroke-width="1"/>
+      <text x="0" y="2" fill="#ffffff" font-size="8" font-family="Arial" text-anchor="middle">95%</text>
+    </g>
+  </g>
+  
+  <!-- Optimization algorithm visualization -->
+  <g transform="translate(50, 320)" opacity="0.8">
+    <rect x="0" y="0" width="200" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="1"/>
+    <text x="10" y="15" fill="#ffffff" font-size="10" font-family="Arial">Route Optimization</text>
+    <text x="10" y="30" fill="#4facfe" font-size="9" font-family="Arial">• Dynamic Routing</text>
+    <text x="10" y="42" fill="#43e97b" font-size="9" font-family="Arial">• Multi-objective</text>
+    <text x="10" y="54" fill="#00f2fe" font-size="9" font-family="Arial">• Real-time Updates</text>
+  </g>
+  
+  <!-- Performance metrics -->
+  <g transform="translate(950, 320)" opacity="0.8">
+    <rect x="0" y="0" width="180" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="#ffffff" stroke-width="1"/>
+    <text x="10" y="15" fill="#ffffff" font-size="10" font-family="Arial">Performance Metrics</text>
+    <text x="10" y="30" fill="#4facfe" font-size="9" font-family="Arial">Efficiency: 94.2%</text>
+    <text x="10" y="42" fill="#43e97b" font-size="9" font-family="Arial">Fuel Saved: 12.5%</text>
+    <text x="10" y="54" fill="#00f2fe" font-size="9" font-family="Arial">Time Saved: 8.3min</text>
+  </g>
+  
+  <!-- Data flow streams -->
+  <g opacity="0.6">
+    <path d="M0,150 Q200,140 400,160 Q600,150 800,170 Q1000,160 1200,150" 
+          stroke="#ffffff" stroke-width="1" fill="none" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M0,250 Q200,240 400,260 Q600,250 800,270 Q1000,260 1200,250" 
+          stroke="#4facfe" stroke-width="1" fill="none" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Floating optimization particles -->
+  <g opacity="0.7">
+    <circle cx="120" cy="80" r="2" fill="#ffffff">
+      <animate attributeName="cy" values="80;60;80" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="320" cy="100" r="1.5" fill="#4facfe">
+      <animate attributeName="cy" values="100;80;100" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="520" cy="70" r="2" fill="#43e97b">
+      <animate attributeName="cy" values="70;50;70" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="90" r="1.5" fill="#00f2fe">
+      <animate attributeName="cy" values="90;70;90" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="920" cy="110" r="2" fill="#ffffff">
+      <animate attributeName="cy" values="110;90;110" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Emergency rerouting indicators -->
+  <g opacity="0.8">
+    <g transform="translate(600, 350)">
+      <rect x="0" y="0" width="80" height="30" rx="5" fill="rgba(255,193,7,0.2)" stroke="#ffc107" stroke-width="1"/>
+      <text x="40" y="12" fill="#ffc107" font-size="8" font-family="Arial" text-anchor="middle">Emergency</text>
+      <text x="40" y="22" fill="#ffc107" font-size="8" font-family="Arial" text-anchor="middle">Rerouting</text>
+    </g>
+  </g>
+  
+  <!-- Algorithm flow arrows -->
+  <g opacity="0.7">
+    <path d="M100,350 L150,350 L145,345 M150,350 L145,355" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="155" y="355" fill="#ffffff" font-size="8" font-family="Arial">Analyze</text>
+    
+    <path d="M300,350 L350,350 L345,345 M350,350 L345,355" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="355" y="355" fill="#ffffff" font-size="8" font-family="Arial">Optimize</text>
+    
+    <path d="M500,350 L550,350 L545,345 M550,350 L545,355" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="555" y="355" fill="#ffffff" font-size="8" font-family="Arial">Route</text>
+    
+    <path d="M700,350 L750,350 L745,345 M750,350 L745,355" stroke="#ffffff" stroke-width="1.5" fill="none"/>
+    <text x="755" y="355" fill="#ffffff" font-size="8" font-family="Arial">Execute</text>
+  </g>
+</svg>
