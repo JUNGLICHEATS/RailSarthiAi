@@ -162,7 +162,7 @@ body{
   content:"";
   width:32px;
   height:32px;
-  background:url('/logo-railway.svg') no-repeat center/contain;
+  background:url('/icon-train.svg') no-repeat center/contain;
   display:inline-block;
 }
 
@@ -669,6 +669,28 @@ body{
   0%,100%{transform:translateX(0)}
   25%{transform:translateX(-5px)}
   75%{transform:translateX(5px)}
+}
+
+/* Solutions Banner */
+.solutions-banner{border:none;padding:0}
+.solutions-bg{background:linear-gradient(135deg,var(--gov-blue),var(--gov-dark-blue));position:relative}
+.solutions-bg:before{content:"";position:absolute;inset:0;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 120 120%22%3E%3Ccircle cx=%226%22 cy=%226%22 r=%222%22 fill=%22rgba(255,255,255,0.1)%22/%3E%3C/svg%3E');background-size:60px 60px;opacity:0.35}
+.solutions-content{position:relative;padding:48px 32px;max-width:1400px;margin:0 auto;color:#fff}
+.solutions-title{margin:0 0 24px 0;font-size:40px;font-weight:800;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+.solutions-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:24px;align-items:center}
+.solutions-block{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);border-radius:16px;padding:20px;backdrop-filter:blur(8px)}
+.solutions-heading{font-size:28px;font-weight:700;margin-bottom:8px}
+.solutions-text{font-size:16px;opacity:0.95;line-height:1.5}
+.solutions-arrow{width:64px;height:24px;opacity:0.9;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2))}
+
+@media (max-width:1024px){
+  .solutions-title{font-size:32px}
+}
+
+@media (max-width:768px){
+  .solutions-flow{grid-template-columns:1fr;gap:16px}
+  .solutions-arrow{display:none}
+  .solutions-content{padding:32px 16px}
 }
 
 /* Train Movement Animations */

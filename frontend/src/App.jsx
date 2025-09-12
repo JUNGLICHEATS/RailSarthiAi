@@ -22,15 +22,19 @@ function App() {
       <header className="gov-header">
         <div className="gov-header-content">
           <div className="gov-logo">
-            <img 
-              src={brand} 
-              alt="Indian Railways Logo" 
-              style={{
-                height: '60px',
-                width: 'auto',
-                marginRight: '12px'
-              }}
-            />
+          <a href="/" style={{ display: 'inline-block' }}>
+  <img 
+    src={brand} 
+    alt="Indian Railways Logo" 
+    style={{
+      height: '60px',
+      width: 'auto',
+      marginRight: '12px',
+      cursor: 'pointer'
+    }}
+  />
+</a>
+
           
           </div>
           <nav className="gov-nav">

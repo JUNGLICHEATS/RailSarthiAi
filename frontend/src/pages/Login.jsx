@@ -119,7 +119,7 @@ export default function Login() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(30, 64, 175, 0.95) 100%), url("https://www.neweb.info/wp-content/uploads/2023/01/10-REXDATA-Rail-Software-Digital-Locomotor.jpg") center/cover',
+      background: 'linear-gradient(135deg,  url("https://www.neweb.info/wp-content/uploads/2023/01/10-REXDATA-Rail-Software-Digital-Locomotor.jpg") center/cover',
       backgroundAttachment: 'fixed',
       display: 'flex',
       alignItems: 'center',
@@ -318,7 +318,7 @@ export default function Login() {
                   style={{
                     background: 'none',
                     border: 'none',
-                    fontSize: '20px',
+                    fontSize: '15px',
                     cursor: 'pointer',
                     padding: '4px',
                     borderRadius: '4px',
@@ -336,10 +336,10 @@ export default function Login() {
                   placeholder="Type the text above"
                   style={{
                     flex: 1,
-                    padding: '8px 12px',
+                    padding: '8px 1px',
                     border: '2px solid #e5e7eb',
                     borderRadius: '6px',
-                    fontSize: '14px',
+                    fontSize: '10px',
                     transition: 'all 0.3s ease'
                   }}
                   onFocus={(e) => e.target.style.borderColor = '#3b82f6'}

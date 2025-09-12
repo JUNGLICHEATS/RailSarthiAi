@@ -33,122 +33,87 @@ export default function Dashboard(){
       backgroundAttachment: 'fixed',
       minHeight: '100vh'
     }}>
-    
-
-      {/* Government Style Overview Card */}
-      <div className="card" style={{
-        gridColumn: 'span 12',
-        background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%), url("https://www.neweb.info/wp-content/uploads/2023/01/10-REXDATA-Rail-Software-Digital-Locomotor.jpg") center/cover',
-        color: 'white',
-        position: 'relative',
-        overflow: 'hidden',
-        padding: '40px',
-        borderRadius: '20px',
-        minHeight: '300px'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: '20px',
-          right: '20px',
-          width: '80px',
-          height: '80px',
-          background: 'rgba(255,255,255,0.15)',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '32px',
-          backdropFilter: 'blur(10px)',
-          border: '2px solid rgba(255,255,255,0.2)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
-        }}>
-          🚆
-        </div>
-        
-        <h1 style={{
-          fontSize: '36px', 
-          margin: '0 0 32px 0', 
-          fontWeight: '700',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
-          textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-        }}>
-          <div style={{
-            width: '56px',
-            height: '56px',
-            background: 'rgba(255,255,255,0.25)',
-            borderRadius: '16px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '28px',
-            backdropFilter: 'blur(10px)',
-            border: '2px solid rgba(255,255,255,0.3)',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
-          }}>
-            🚆
+       {/* Feature Description Section */}
+       <div className="card" style={{gridColumn:'span 12', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', padding: '40px'}}>
+        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'center'}}>
+          <div>
+            <h2 style={{fontSize: '32px', fontWeight: '700', marginBottom: '20px'}}>
+              Industry's most intuitive train graph
+            </h2>
+            <ul style={{listStyle: 'none', padding: 0, fontSize: '16px', lineHeight: '1.6'}}>
+              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
+                <span style={{marginRight: '12px', fontSize: '20px'}}>•</span>
+                View train routes with accurate downstream ETAs.
+              </li>
+              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
+                <span style={{marginRight: '12px', fontSize: '20px'}}>•</span>
+                Drag and drop string lines to resolve meet-and-pass conflicts.
+              </li>
+              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
+                <span style={{marginRight: '12px', fontSize: '20px'}}>•</span>
+                Find and reserve maintenance work windows.
+              </li>
+              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
+                <span style={{marginRight: '12px', fontSize: '20px'}}>•</span>
+                See speed restrictions and tracks out of service.
+              </li>
+              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
+                <span style={{marginRight: '12px', fontSize: '20px'}}>•</span>
+                Collaborate and talk to other users in real time.
+              </li>
+            </ul>
           </div>
-          Indian Railways AI Controller System
-        </h1>
-        
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px'}}>
-          <div className="animate-slide-in" style={{
-            background: 'rgba(255,255,255,0.1)',
-            padding: '24px',
-            borderRadius: '16px',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
-          }}>
-            <div style={{fontSize: '18px', opacity: '0.9', marginBottom: '12px', fontWeight: '500', textShadow: '0 1px 2px rgba(0,0,0,0.3)'}}>Total Trains</div>
-            <div style={{fontSize: '48px', fontWeight: 'bold', marginBottom: '8px', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
-              {isLoading ? <div className="loading-spinner" style={{width: '40px', height: '40px'}}></div> : kpis?.totalTrains || 0}
-            </div>
-            <div style={{fontSize: '16px', opacity: '0.8', textShadow: '0 1px 2px rgba(0,0,0,0.3)'}}>
-              Punctuality: {isLoading ? '...' : kpis?.punctuality || 0}%
-            </div>
-          </div>
-          
-          <div className="animate-slide-in" style={{
-            animationDelay: '0.1s',
-            background: 'rgba(255,255,255,0.1)',
-            padding: '24px',
-            borderRadius: '16px',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
-          }}>
-            <div style={{fontSize: '18px', opacity: '0.9', marginBottom: '12px', fontWeight: '500', textShadow: '0 1px 2px rgba(0,0,0,0.3)'}}>Maintenance Trains</div>
-            <div style={{fontSize: '48px', fontWeight: 'bold', marginBottom: '8px', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
-              {isLoading ? <div className="loading-spinner" style={{width: '40px', height: '40px'}}></div> : kpis?.maintenanceTrains || 0}
-            </div>
-            <div style={{fontSize: '16px', opacity: '0.8', textShadow: '0 1px 2px rgba(0,0,0,0.3)'}}>
-              Avg Load: {isLoading ? '...' : kpis?.avgPassengerLoad || 0}
-            </div>
-          </div>
-          
-          <div className="animate-slide-in" style={{
-            animationDelay: '0.2s',
-            background: 'rgba(255,255,255,0.1)',
-            padding: '24px',
-            borderRadius: '16px',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
-          }}>
-            <div style={{fontSize: '18px', opacity: '0.9', marginBottom: '12px', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '8px', textShadow: '0 1px 2px rgba(0,0,0,0.3)'}}>
-              📍 Indian Railway Network
-            </div>
-            <div style={{fontSize: '36px', fontWeight: 'bold', marginBottom: '8px', color: '#10b981', textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
-              Operational
-            </div>
-            <div style={{fontSize: '16px', opacity: '0.8', textShadow: '0 1px 2px rgba(0,0,0,0.3)'}}>
-              AI Controller: Active
+          <div style={{textAlign: 'center'}}>
+            <div style={{
+              width: '300px',
+              height: '200px',
+              background: 'rgba(255,255,255,0.1)',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: '2px dashed rgba(255,255,255,0.3)',
+              margin: '0 auto'
+            }}>
+              <div style={{textAlign: 'center'}}>
+              <div style={{ textAlign: 'center' }}>
+  <img
+    src="/railwayrule2.jpg" 
+    alt="Graph Placeholder"
+    style={{ width: 'auto', height: 'auto', marginBottom: '10px' }}
+  />
+</div>
+</div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Solutions Banner */}
+      <div className="solutions-banner card" style={{gridColumn:'span 12', padding:0}}>
+        <div className="solutions-bg">
+          <div className="solutions-content">
+            <h2 className="solutions-title">Solutions for railroads of all sizes</h2>
+            <div className="solutions-flow">
+              <div className="solutions-block">
+                <div className="solutions-heading">Visibility</div>
+                <div className="solutions-text">See real-time train locations, train paths, and maintenance opportunities in an intuitive graphical interface.</div>
+              </div>
+              <img src="/arrow-right.svg" alt="to" className="solutions-arrow" />
+              <div className="solutions-block">
+                <div className="solutions-heading">Decision support</div>
+                <div className="solutions-text">Unlock new insights and opportunities with the help of actionable KPIs.</div>
+              </div>
+              <img src="/arrow-right.svg" alt="to" className="solutions-arrow" />
+              <div className="solutions-block">
+                <div className="solutions-heading">Optimization</div>
+                <div className="solutions-text">Resolve meets, passes, and maintenance activities in line with business objectives.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
 
     
 
@@ -161,18 +126,10 @@ export default function Dashboard(){
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginTop: '20px'}}>
           <div className="animate-slide-in" style={{textAlign: 'center', padding: '20px'}}>
             <div style={{
-              width: '80px',
-              height: '80px',
-              background: 'linear-gradient(135deg, var(--gov-blue), var(--gov-dark-blue))',
-              borderRadius: '12px',
-              margin: '0 auto 16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px',
-              boxShadow: 'var(--gov-shadow)'
+              width: 'auto',
+              height: 'auto',
             }}>
-              🚂
+              <img src="/trainrule1.webp" alt="Train" style={{width:'200px',height:'200px'}}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Run more trains or schedule more maintenance.
@@ -180,19 +137,11 @@ export default function Dashboard(){
           </div>
           
           <div className="animate-slide-in" style={{textAlign: 'center', padding: '20px', animationDelay: '0.1s'}}>
-            <div style={{
-              width: '80px',
-              height: '80px',
-              background: 'linear-gradient(135deg, var(--gov-green), #10b981)',
-              borderRadius: '12px',
-              margin: '0 auto 16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px',
-              boxShadow: 'var(--gov-shadow)'
+          <div style={{
+              width: 'auto',
+              height: 'auto',
             }}>
-              ✅
+              <img src="/images (3).jpg" alt="Train" style={{width:'200px',height:'200px'}}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Change train meets and passes to improve schedule adherence.
@@ -200,19 +149,11 @@ export default function Dashboard(){
           </div>
           
           <div className="animate-slide-in" style={{textAlign: 'center', padding: '20px', animationDelay: '0.2s'}}>
-            <div style={{
-              width: '80px',
-              height: '80px',
-              background: 'linear-gradient(135deg, var(--gov-orange), #fb923c)',
-              borderRadius: '12px',
-              margin: '0 auto 16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px',
-              boxShadow: 'var(--gov-shadow)'
+          <div style={{
+              width: 'auto',
+              height: 'auto',
             }}>
-              🛤️
+              <img src="/railwayrule2.jpg" alt="Train" style={{width:'200px',height:'200px'}}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Re-route traffic to reduce congestion and delay.
@@ -220,19 +161,11 @@ export default function Dashboard(){
           </div>
           
           <div className="animate-slide-in" style={{textAlign: 'center', padding: '20px', animationDelay: '0.3s'}}>
-            <div style={{
-              width: '80px',
-              height: '80px',
-              background: 'linear-gradient(135deg, var(--gov-red), #ef4444)',
-              borderRadius: '12px',
-              margin: '0 auto 16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '24px',
-              boxShadow: 'var(--gov-shadow)'
+          <div style={{
+              width: 'auto',
+              height: 'auto',
             }}>
-              📊
+              <img src="/images (4).jpg" alt="Train" style={{width:'200px',height:'200px'}}/>
             </div>
             <h4 style={{margin: '0 0 8px 0', color: 'var(--gov-blue)', fontWeight: '600'}}>
               Create multiple scenarios and compare KPIs to find the best plan.
@@ -240,6 +173,8 @@ export default function Dashboard(){
           </div>
         </div>
       </div>
+     
+     
       {/* Real-time Movement Planning */}
       <div className="card" style={{gridColumn:'span 12'}}>
         <h3 style={{fontSize: '24px', fontWeight: '700', marginBottom: '20px'}}>
