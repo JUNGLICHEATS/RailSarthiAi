@@ -9,9 +9,7 @@ export default function handler(req, res) {
       path.join(process.cwd(), 'data', 'train_data.csv'),
       path.join(process.cwd(), 'public', 'data', 'train_data.csv'),
       path.join(process.cwd(), 'frontend', 'data', 'train_data.csv'),
-      path.join(process.cwd(), 'frontend', 'public', 'data', 'train_data.csv'),
-      path.join(__dirname, '..', 'data', 'train_data.csv'),
-      path.join(__dirname, '..', 'public', 'data', 'train_data.csv')
+      path.join(process.cwd(), 'frontend', 'public', 'data', 'train_data.csv')
     ];
     
     let csvContent = null;
@@ -30,7 +28,6 @@ export default function handler(req, res) {
     if (!csvContent) {
       console.error('Available paths tried:', possiblePaths);
       console.error('Current working directory:', process.cwd());
-      console.error('__dirname:', __dirname);
       throw new Error('Could not find train_data.csv in any expected location');
     }
     

@@ -9,9 +9,7 @@ export default function handler(req, res) {
       path.join(process.cwd(), 'data', 'train_data.csv'),
       path.join(process.cwd(), 'public', 'data', 'train_data.csv'),
       path.join(process.cwd(), 'frontend', 'data', 'train_data.csv'),
-      path.join(process.cwd(), 'frontend', 'public', 'data', 'train_data.csv'),
-      path.join(__dirname, '..', 'data', 'train_data.csv'),
-      path.join(__dirname, '..', 'public', 'data', 'train_data.csv')
+      path.join(process.cwd(), 'frontend', 'public', 'data', 'train_data.csv')
     ];
     
     let csvContent = null;
