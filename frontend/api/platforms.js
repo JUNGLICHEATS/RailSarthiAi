@@ -4,9 +4,32 @@ import { parse } from 'csv-parse/sync';
 
 export default function handler(req, res) {
   try {
-    // Read CSV file from public directory
-    const csvPath = path.join(process.cwd(), 'data', 'platform_track_data.csv');
-    const csvContent = fs.readFileSync(csvPath, 'utf8');
+    // Try multiple possible locations for the CSV file
+    const possiblePaths = [
+      path.join(process.cwd(), 'data', 'platform_track_data.csv'),
+      path.join(process.cwd(), 'public', 'data', 'platform_track_data.csv'),
+      path.join(process.cwd(), 'frontend', 'data', 'platform_track_data.csv'),
+      path.join(process.cwd(), 'frontend', 'public', 'data', 'platform_track_data.csv'),
+      path.join(__dirname, '..', 'data', 'platform_track_data.csv'),
+      path.join(__dirname, '..', 'public', 'data', 'platform_track_data.csv')
+    ];
+    
+    let csvContent = null;
+    let csvPath = null;
+    
+    for (const testPath of possiblePaths) {
+      try {
+        csvContent = fs.readFileSync(testPath, 'utf8');
+        csvPath = testPath;
+        break;
+      } catch (err) {
+        // Continue to next path
+      }
+    }
+    
+    if (!csvContent) {
+      throw new Error('Could not find platform_track_data.csv in any expected location');
+    }
     
     // Parse CSV
     const records = parse(csvContent, {
