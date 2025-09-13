@@ -91,7 +91,7 @@ export default function KPI() {
     const weathers = ['Clear', 'Rainy', 'Foggy', 'Stormy', 'Snowy']
     const disruptions = ['None', 'Track Maintenance', 'Signal Failure', 'Weather', 'Accident']
     
-    return Array.from({ length: 8 }, (_, index) => ({
+    return Array.from({ length: 100 }, (_, index) => ({
       TrainNumber: `12${String(index + 1).padStart(3, '0')}${String(Math.floor(Math.random() * 10))}`,
       TrainName: `Train ${index + 1}`,
       Origin: origins[Math.floor(Math.random() * origins.length)],
