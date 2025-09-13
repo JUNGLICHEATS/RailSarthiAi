@@ -101,20 +101,20 @@ export default function ControlPanel() {
           
         }
 
-      return {
-        ...train,
-        id: `train-${index}`,
+          return {
+            ...train,
+            id: `train-${index}`,
         position: Math.max(0, Math.min(100, position)),
         speed: Math.floor(Math.random() * 40) + 20, // 20-60 km/h
         delay: Math.floor(Math.random() * 10), // 0-10 minutes
         direction,
         status,
-        route: `${train.Origin} → ${train.Destination}`,
-        type: train.Type,
-        priority: train.Priority,
+            route: `${train.Origin} → ${train.Destination}`,
+            type: train.Type,
+            priority: train.Priority,
         isStopped,
         stopEndTime,
-        platform: isPlatform ? (index - 1) : null,
+            platform: isPlatform ? (index - 1) : null,
         track: isIncoming ? 'incoming' : isOutgoing ? 'outgoing' : 
                (direction === 'inbound' ? 'platform-inbound' : 'platform-outbound'),
         lastUpdate: Date.now()
@@ -268,7 +268,7 @@ export default function ControlPanel() {
             const response = await axios.get(`${API}/api/trains`)
             trainData = response.data
             setIsRealTimeMode(false)
-          } catch (error) {
+      } catch (error) {
             console.log('API not available, using mock data')
             setIsRealTimeMode(true)
           }
@@ -428,7 +428,7 @@ export default function ControlPanel() {
           </div>
           <div className="animate-slide-in" style={{animationDelay: '0.2s'}}>
             <div style={{fontSize: '16px', opacity: '0.9', marginBottom: '8px', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '8px'}}>
-              🚦 Traffic Control
+                     🚦 Traffic Control
             </div>
             <div style={{fontSize: '32px', fontWeight: 'bold', marginBottom: '4px'}}>
               {isRealTimeMode ? 'Simulation' : 'Live'}
@@ -898,18 +898,18 @@ export default function ControlPanel() {
                 const hasCollisionWarning = conflictingTrains.length > 0
                 
                 return (
-                  <div
-                    key={train.id}
-                    className="card animate-slide-in"
-                    style={{
-                      animationDelay: `${index * 0.1}s`,
+                <div
+                  key={train.id}
+                  className="card animate-slide-in"
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
                       border: hasCollisionWarning ? '2px solid #ef4444' : '2px solid var(--gov-border)',
                       background: hasCollisionWarning ? '#fef2f2' : 'white',
                       boxShadow: hasCollisionWarning ? '0 0 10px rgba(239, 68, 68, 0.3)' : 'none'
-                    }}
-                  >
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px'}}>
-                      <h4 style={{margin: 0, color: 'var(--gov-blue)'}}>{train.TrainNumber}</h4>
+                  }}
+                >
+                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px'}}>
+                    <h4 style={{margin: 0, color: 'var(--gov-blue)'}}>{train.TrainNumber}</h4>
                       <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
                         {hasCollisionWarning && (
                           <div style={{
@@ -923,20 +923,20 @@ export default function ControlPanel() {
                             ⚠️ COLLISION RISK
                           </div>
                         )}
-                        <div className={`status-indicator ${train.status === 'On Time' ? 'status-online' : train.status === 'Delayed' ? 'status-warning' : 'status-maintenance'}`}>
-                          {train.status}
+                    <div className={`status-indicator ${train.status === 'On Time' ? 'status-online' : train.status === 'Delayed' ? 'status-warning' : 'status-maintenance'}`}>
+                      {train.status}
                         </div>
-                      </div>
                     </div>
-                    
-                    <div style={{marginBottom: '8px'}}>
-                      <div style={{fontSize: '14px', color: 'var(--gov-gray)', marginBottom: '4px'}}>Route</div>
-                      <div style={{fontWeight: '600'}}>{train.route}</div>
-                    </div>
-                    
-                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px'}}>
-                      <div>
-                        <div style={{fontSize: '12px', color: 'var(--gov-gray)'}}>Speed</div>
+                  </div>
+                  
+                  <div style={{marginBottom: '8px'}}>
+                    <div style={{fontSize: '14px', color: 'var(--gov-gray)', marginBottom: '4px'}}>Route</div>
+                    <div style={{fontWeight: '600'}}>{train.route}</div>
+                  </div>
+                  
+                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px'}}>
+                    <div>
+                      <div style={{fontSize: '12px', color: 'var(--gov-gray)'}}>Speed</div>
                         <div style={{
                           fontSize: '18px', 
                           fontWeight: 'bold', 
@@ -949,14 +949,14 @@ export default function ControlPanel() {
                             </span>
                           )}
                         </div>
-                      </div>
-                      <div>
+                    </div>
+                    <div>
                         <div style={{fontSize: '12px', color: 'var(--gov-gray)'}}>Track</div>
                         <div style={{fontSize: '14px', fontWeight: 'bold', color: 'var(--gov-blue)'}}>
                           {train.track.replace('-', ' ').toUpperCase()}
-                        </div>
                       </div>
                     </div>
+                  </div>
                     
                     {hasCollisionWarning && (
                       <div style={{
@@ -971,21 +971,21 @@ export default function ControlPanel() {
                         <strong>⚠️ Collision Warning:</strong> Too close to {conflictingTrains.length} other train(s)
                       </div>
                     )}
-                    
-                    <div style={{display: 'flex', gap: '8px'}}>
-                      <button className="gov-button" style={{padding: '6px 12px', fontSize: '12px'}}>
-                        Track
-                      </button>
-                      <button className="gov-button gov-button-orange" style={{padding: '6px 12px', fontSize: '12px'}}>
-                        Control
-                      </button>
+                  
+                  <div style={{display: 'flex', gap: '8px'}}>
+                    <button className="gov-button" style={{padding: '6px 12px', fontSize: '12px'}}>
+                      Track
+                    </button>
+                    <button className="gov-button gov-button-orange" style={{padding: '6px 12px', fontSize: '12px'}}>
+                      Control
+                    </button>
                       {hasCollisionWarning && (
                         <button className="gov-button gov-button-red" style={{padding: '6px 12px', fontSize: '12px'}}>
                           Emergency Stop
                         </button>
                       )}
-                    </div>
                   </div>
+                </div>
                 )
               })}
             </div>
