@@ -589,39 +589,325 @@ export default function Dashboard(){
      
      
       {/* Real-time Movement Planning */}
-      <div className="card" style={{gridColumn:'span 12'}}>
-        <h3 style={{fontSize: '24px', fontWeight: '700', marginBottom: '20px'}}>
-          Real-time Movement Planning
-        </h3>
-        <p style={{color: 'var(--gov-gray)', marginBottom: '20px', fontSize: '16px'}}>
-          True dispatch by exception takes the pressure off you by:
-        </p>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px'}}>
-          <div>
-            <ul style={{listStyle: 'none', padding: 0}}>
-              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
-                <span style={{color: 'var(--gov-green)', marginRight: '8px', fontSize: '18px'}}>✓</span>
-                Resolving meets and passes based on business goals.
-              </li>
-              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
-                <span style={{color: 'var(--gov-green)', marginRight: '8px', fontSize: '18px'}}>✓</span>
-                Suggesting maintenance to avoid disruptions.
-              </li>
-            </ul>
-          </div>
-          <div>
-            <ul style={{listStyle: 'none', padding: 0}}>
-              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
-                <span style={{color: 'var(--gov-green)', marginRight: '8px', fontSize: '18px'}}>✓</span>
-                Getting your network back on track after an unplanned event.
-              </li>
-              <li style={{marginBottom: '12px', display: 'flex', alignItems: 'center'}}>
-                <span style={{color: 'var(--gov-green)', marginRight: '8px', fontSize: '18px'}}>✓</span>
-                Optimizing your network based on your goals.
-              </li>
-            </ul>
-          </div>
+      <div className="card" style={{
+        gridColumn:'span 12',
+        position: 'relative',
+        overflow: 'hidden',
+        background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e3a8a 100%)',
+        border: '1px solid rgba(59, 130, 246, 0.3)',
+        borderRadius: '16px',
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.1)'
+      }}>
+        {/* Animated Background */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          opacity: 0.15,
+          backgroundImage: `
+            radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%)
+          `,
+          animation: 'backgroundShift 8s ease-in-out infinite'
+        }} />
+        
+        {/* Moving Railway Tracks Background */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          opacity: 0.1,
+          backgroundImage: `
+            repeating-linear-gradient(
+              90deg,
+              transparent,
+              transparent 98px,
+              rgba(59, 130, 246, 0.3) 100px
+            ),
+            repeating-linear-gradient(
+              0deg,
+              transparent,
+              transparent 38px,
+              rgba(59, 130, 246, 0.2) 40px
+            )
+          `,
+          animation: 'trackMove 20s linear infinite'
+        }} />
+        
+        {/* Floating Data Packets */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          pointerEvents: 'none'
+        }}>
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                width: '8px',
+                height: '8px',
+                background: 'linear-gradient(45deg, #3b82f6, #10b981)',
+                borderRadius: '50%',
+                left: `${10 + i * 15}%`,
+                top: `${20 + Math.sin(i) * 30}%`,
+                animation: `floatPacket ${3 + i * 0.5}s ease-in-out infinite`,
+                animationDelay: `${i * 0.5}s`
+              }}
+            />
+          ))}
         </div>
+        
+        {/* Network Connection Lines */}
+        <svg
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: 0.2,
+            pointerEvents: 'none'
+          }}
+          width="100%"
+          height="100%"
+        >
+          {[...Array(4)].map((_, i) => (
+            <line
+              key={i}
+              x1={`${20 + i * 20}%`}
+              y1="30%"
+              x2={`${30 + i * 15}%`}
+              y2="70%"
+              stroke="#3b82f6"
+              strokeWidth="2"
+              opacity="0.4"
+              style={{
+                animation: `pulseLine 2s ease-in-out infinite`,
+                animationDelay: `${i * 0.3}s`
+              }}
+            />
+          ))}
+        </svg>
+
+        {/* Content */}
+        <div style={{position: 'relative', zIndex: 10}}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            marginBottom: '20px'
+          }}>
+            <div style={{
+              padding: '8px',
+              background: 'rgba(59, 130, 246, 0.2)',
+              borderRadius: '12px',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(59, 130, 246, 0.3)'
+            }}>
+              <span style={{fontSize: '24px'}}>⚡</span>
+            </div>
+            <h3 style={{
+              fontSize: '28px',
+              fontWeight: '700',
+              margin: 0,
+              background: 'linear-gradient(135deg, #3b82f6, #10b981, #3b82f6)',
+              backgroundSize: '200% 100%',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              animation: 'gradientShift 3s ease-in-out infinite'
+            }}>
+              Real-time Movement Planning
+            </h3>
+          </div>
+          
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.8)',
+            marginBottom: '24px',
+            fontSize: '16px',
+            lineHeight: '1.6'
+          }}>
+            True dispatch by exception takes the pressure off you by leveraging advanced AI algorithms 
+            and predictive analytics to optimize your operations automatically.
+          </p>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '20px'
+          }}>
+            <div>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(59, 130, 246, 0.1)';
+                  e.target.style.transform = 'translateX(4px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                  e.target.style.transform = 'translateX(0)';
+                }}>
+                  <span style={{
+                    color: '#10b981',
+                    marginRight: '12px',
+                    fontSize: '20px',
+                    fontWeight: 'bold'
+                  }}>✓</span>
+                  <span style={{color: 'rgba(255, 255, 255, 0.9)', fontSize: '14px'}}>
+                    Resolving meets and passes based on business goals.
+                  </span>
+                </li>
+                <li style={{
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(59, 130, 246, 0.1)';
+                  e.target.style.transform = 'translateX(4px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                  e.target.style.transform = 'translateX(0)';
+                }}>
+                  <span style={{
+                    color: '#10b981',
+                    marginRight: '12px',
+                    fontSize: '20px',
+                    fontWeight: 'bold'
+                  }}>✓</span>
+                  <span style={{color: 'rgba(255, 255, 255, 0.9)', fontSize: '14px'}}>
+                    Suggesting maintenance to avoid disruptions.
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul style={{listStyle: 'none', padding: 0, margin: 0}}>
+                <li style={{
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(59, 130, 246, 0.1)';
+                  e.target.style.transform = 'translateX(4px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                  e.target.style.transform = 'translateX(0)';
+                }}>
+                  <span style={{
+                    color: '#10b981',
+                    marginRight: '12px',
+                    fontSize: '20px',
+                    fontWeight: 'bold'
+                  }}>✓</span>
+                  <span style={{color: 'rgba(255, 255, 255, 0.9)', fontSize: '14px'}}>
+                    Getting your network back on track after an unplanned event.
+                  </span>
+                </li>
+                <li style={{
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(59, 130, 246, 0.1)';
+                  e.target.style.transform = 'translateX(4px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+                  e.target.style.transform = 'translateX(0)';
+                }}>
+                  <span style={{
+                    color: '#10b981',
+                    marginRight: '12px',
+                    fontSize: '20px',
+                    fontWeight: 'bold'
+                  }}>✓</span>
+                  <span style={{color: 'rgba(255, 255, 255, 0.9)', fontSize: '14px'}}>
+                    Optimizing your network based on your goals.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        
+        {/* CSS Animations */}
+        <style jsx>{`
+          @keyframes backgroundShift {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-10px) translateY(-5px); }
+            50% { transform: translateX(10px) translateY(5px); }
+            75% { transform: translateX(-5px) translateY(10px); }
+          }
+          
+          @keyframes trackMove {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+          }
+          
+          @keyframes floatPacket {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-10px) translateX(5px); }
+            50% { transform: translateY(-5px) translateX(-5px); }
+            75% { transform: translateY(-15px) translateX(3px); }
+          }
+          
+          @keyframes pulseLine {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+          }
+          
+          @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          
+          @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+          }
+        `}</style>
       </div>
     </div>
     </>

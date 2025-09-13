@@ -1,4 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import './App.css'
 import brand from './assets/brand.png'
 import { useAuth } from './contexts/AuthContext'
@@ -6,6 +7,7 @@ import { useAuth } from './contexts/AuthContext'
 function App() {
   const location = useLocation()
   const { isAuthenticated, user, logout } = useAuth()
+  const [currentTime, setCurrentTime] = useState('')
   
   const getCurrentTime = () => {
     return new Date().toLocaleString('en-IN', {
@@ -17,6 +19,22 @@ function App() {
       second: '2-digit'
     })
   }
+
+  // Update time every second
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentTime(getCurrentTime())
+    }
+    
+    // Set initial time
+    updateTime()
+    
+    // Update every second
+    const interval = setInterval(updateTime, 1000)
+    
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="app-shell">
@@ -78,8 +96,15 @@ function App() {
           <div className="gov-time">
             
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-              <div style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>
-                {getCurrentTime()}
+              <div style={{ 
+                fontSize: '14px', 
+                fontWeight: '600', 
+                color: 'white',
+                transition: 'opacity 0.3s ease',
+                minWidth: '140px',
+                textAlign: 'right'
+              }}>
+                {currentTime}
               </div>
               <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.7)', marginTop: '2px' }}>
                 सत्यमेव जयते
